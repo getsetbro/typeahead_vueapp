@@ -1,0 +1,20 @@
+form{
+  position: relative;
+
+}
+.form-control{
+  border-radius:0;
+}
+.form-control:focus {
+  border-color: #eee;
+  box-shadow: none;
+}
+form .table{
+  position: absolute;
+  top:98%;
+  background-color: white;
+  display: none!important;
+}
+input:focus + div{
+  display: table!important;
+}

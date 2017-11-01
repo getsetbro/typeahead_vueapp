@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>type_ahead</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app" class="container">
+    <h1>app</h1>
+    <div class="row no-gutters">
+        <form v-on:submit.prevent="onSubmit" class="col-sm-6">
+            <input class="form-control" v-model="term" @input="debo" ref="typeahead"/>
+            <div class="d-table table table-bordered table-sm">
+                <a class="d-table-row" v-for="item in suggestions" href="#" :key="item.id">
+                  <span class="d-table-cell" v-text="item.name"></span><span class="d-table-cell" v-text="item.username"></span><span class="d-table-cell" v-text="item.website"></span>
+                </a>
+                <span class="d-table-row" v-if="term !== '' && suggestions.length < 1">
+                    <span class="d-table-cell">No Items</span><span class="d-table-cell"> - </span><span class="d-table-cell"> - </span>
+                </span>
+            </div>
+          </form>
+    </div>
+
+    <br>
+    <br>
+    <div class="d-table table">
+        <a class="d-table-row" v-for="item in list" href="#" :key="item.id">
+          <span class="d-table-cell" v-text="item.name"></span><span class="d-table-cell" v-text="item.username"></span><span class="d-table-cell" v-text="item.website"></span>
+        </a>
+        <span class="d-table-row" v-if="list.length < 1">
+          <span class="d-table-cell">No Items</span><span class="d-table-cell"> - </span><span class="d-table-cell"> - </span>
+        </span>
+      </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/combine/npm/axios@0.17.0/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  <script src="lodash.custom.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
